@@ -4,7 +4,10 @@
 // - another function call
 // - additional variables
 pub fn bigger(a: i32, b: i32) -> i32 {
-    todo!()
+    if a > b {
+        return a
+    } 
+    b
 }
 
 //Exercise 2
@@ -12,7 +15,12 @@ pub fn bigger(a: i32, b: i32) -> i32 {
 // Check number is Positive or Negative or Zero
 // Output: &str
 fn check_number(number: u32) -> &'static str {
-    todo!()
+    if number == 0 {
+        return "Zero";
+    } else if number % 2 == 1 {
+        return "Positive";
+    }
+    "Negative"
 }
 
 // Exercise 3
@@ -23,7 +31,7 @@ pub fn foo_if_fizz(fizzish: &str) -> &str {
     if fizzish == "fizz" {
         "foo"
     } else {
-        1
+        "1"
     }
 }
 
@@ -31,14 +39,26 @@ pub fn foo_if_fizz(fizzish: &str) -> &str {
 // Determine if a given year is a leap year
 // Implement logic
 fn is_leap_year(year: i32) -> bool {
-    todo!()
+    if year % 4 == 0 {
+        if year % 100 == 0 {
+            if year % 400 == 0 {
+                return true;
+            }
+        }
+    }
+    false
 }
 
 // Exercise 5
 // Calculate the factorial of a number
 // Implement logic
 fn factorial(n: u32) -> u32 {
-    todo!()
+    let mut sum: u32 = 0;
+    for i in 1..n {
+        sum +=  i;
+    }
+
+    sum
 }
 
 // Exercise 6
@@ -46,7 +66,21 @@ fn factorial(n: u32) -> u32 {
 // Implement logic
 
 fn is_prime(n: u32) -> bool {
-    todo!()
+    if n < 2 {
+        return false
+    }
+
+    if n == 2 {
+        return true
+    }
+    
+    for i in 3..(n-1) {
+        if n % i == 0 {
+            return false;
+        }
+    }
+
+    true
 }
 
 
